@@ -1,0 +1,31 @@
+fields:
+    title:
+        label: Titolo
+        span: auto
+        type: text
+    date:
+        label: Data
+        mode: date
+        span: auto
+        type: datepicker
+    content:
+        label: Contenuto
+        size: large
+        span: full
+        type: richeditor
+    images:
+        label: Immagini
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    slug:
+        label: 'Url Alias'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text

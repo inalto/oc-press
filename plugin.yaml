@@ -1,0 +1,20 @@
+plugin:
+    name: 'martinimultimedia.press::lang.plugin.name'
+    description: 'martinimultimedia.press::lang.plugin.description'
+    author: 'Martini Multimedia'
+    icon: oc-icon-newspaper-o
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Stampa
+        url: martinimultimedia/press/releases
+        icon: icon-newspaper-o
+        sideMenu:
+            side-menu-item:
+                label: Comunicati
+                url: martinimultimedia/press/releases
+                icon: icon-list
+            side-menu-item2:
+                label: Rassegna
+                url: martinimultimedia/press/reviews
+                icon: icon-list-alt

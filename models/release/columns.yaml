@@ -1,0 +1,16 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        sortable: true
+    title:
+        label: titolo
+        type: text
+        searchable: true
+        sortable: true
+    date:
+        label: data
+        type: date
+        searchable: true
+        sortable: true

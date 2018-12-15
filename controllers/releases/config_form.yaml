@@ -1,0 +1,10 @@
+name: Releases
+form: $/martinimultimedia/press/models/release/fields.yaml
+modelClass: MartiniMultimedia\Press\Models\Release
+defaultRedirect: martinimultimedia/press/releases
+create:
+    redirect: 'martinimultimedia/press/releases/update/:id'
+    redirectClose: martinimultimedia/press/releases
+update:
+    redirect: martinimultimedia/press/releases
+    redirectClose: martinimultimedia/press/releases

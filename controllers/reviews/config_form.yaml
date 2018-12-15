@@ -1,0 +1,10 @@
+name: Reviews
+form: $/martinimultimedia/press/models/review/fields.yaml
+modelClass: MartiniMultimedia\Press\Models\Review
+defaultRedirect: martinimultimedia/press/reviews
+create:
+    redirect: 'martinimultimedia/press/reviews/update/:id'
+    redirectClose: martinimultimedia/press/reviews
+update:
+    redirect: martinimultimedia/press/reviews
+    redirectClose: martinimultimedia/press/reviews
