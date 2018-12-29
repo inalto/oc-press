@@ -1,3 +1,109 @@
-<p>This is the default markup for component release</p>
 
-<small>You can delete this file if you want</small>
+{% set release = __SELF__.release %}
+
+{% put styles %}
+<meta property="og:url" content="{{  url_current() }}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ release.title }}" />
+<meta property="og:description" content="{{ html_strip(html_limit(release.content,100)) }}" />
+
+{% endput %}
+
+
+
+
+
+
+<section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="{{ 'sfondi/affondo.jpg'|media }}" data-position-y="150">
+    <div class="container pt-70 pb-50">
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="title text-white">{{ release.title }}</h4>
+                    <ul class="breadcrumb white">
+                        <li><a class="text-white" href="{{ 'home'|page }}">HOME</a></li>
+                        <li class="active">{{ release.title }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-30 mb-30 pt-30 pb-30">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="blog-posts single-post">
+                    <article class="post clearfix mb-0">
+
+                    {% if release.images.count %}
+                        <div class="entry-header">
+                            <div class="post-thumb thumb"> <img src="{{ release.images.first.path }}" alt="{{ release.images.first.title }}" title="{{ release.images.first.title }}"
+                                    class="img-responsive img-fullwidth"> </div>
+                        </div>
+                        {% put styles %}
+                        <meta property="og:image" content="{{ release.images.first.path }}" />
+                        <meta property="og:image:url" content="{{ release.images.first.path }}" />
+                        <meta property="og:image:secure_url" content="{{ release.images.first.path }}" />
+                        <meta property="og:image:type" content="image/jpeg" />
+                        <meta property="fb:app_id" content="420952195042470" />
+                        <meta name="description" content="{{ html_strip(html_limit(release.content,100)) }}">
+                        {% endput %}
+                    {% endif %}
+
+
+
+                        <div class="entry-content">
+                            <div class="entry-meta media no-bg no-border mt-15 pb-20">
+                                <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
+                                    <ul>
+                                        <li class="font-16 text-white font-weight-600">{{ release.date|date('d') }}</li>
+                                        <li class="font-12 text-white text-uppercase">{{ release.date|date('M') }}</li>
+                                    </ul>
+                                </div>
+                                <div class="media-body pl-15">
+                                    <div class="event-content pull-left flip">
+                                        <h4 class="entry-title text-uppercase m-0">{{ release.title }}</h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {{ release.content|raw }}
+
+                            <div class="mt-30 mb-0">
+                                <h5 class="pull-left mt-10 mr-20 text-theme-colored">Condividi:</h5>
+                                <ul class="social-icons icon-circled m-0">
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{  url_current()|url_encode}}"
+                                            data-bg-color="#3A5795"><i class="fa fa-facebook text-white"></i></a></li>
+                                    <li> <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"
+                                            data-pin-custom="true" class="fa fa-pinterest" target="_blank"></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% put scripts %}
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.12";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+{% endput %}

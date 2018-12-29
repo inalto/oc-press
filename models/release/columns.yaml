@@ -9,7 +9,7 @@ columns:
         type: text
         searchable: true
         sortable: true
-    date:
+    published_at:
         label: data
         type: date
         searchable: true

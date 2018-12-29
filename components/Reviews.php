@@ -6,9 +6,11 @@ class Reviews extends ComponentBase
 {
     public function componentDetails()
     {
-        return [
-            'name'        => 'reviews Component',
-            'description' => 'No description provided yet...'
+
+            return [
+                'name'        => 'martinimultimedia.press::lang.components.reviews.title',
+                'description' => 'martinimultimedia.press::lang.components.reviews.description'
+
         ];
     }
 

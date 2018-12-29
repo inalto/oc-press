@@ -3,7 +3,7 @@ fields:
         label: Titolo
         span: auto
         type: text
-    date:
+    published_at:
         label: Data
         mode: date
         span: auto

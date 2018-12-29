@@ -12,3 +12,15 @@
 1.0.5:
     - 'Created table martinimultimedia_press_releases'
     - builder_table_create_martinimultimedia_press_releases_2.php
+1.0.6:
+    - 'Updated table martinimultimedia_press_releases'
+    - builder_table_update_martinimultimedia_press_releases.php
+1.0.7:
+    - 'Updated table martinimultimedia_press_reviews'
+    - builder_table_update_martinimultimedia_press_reviews.php
+1.0.8:
+    - 'Updated table martinimultimedia_press_releases'
+    - builder_table_update_martinimultimedia_press_releases_2.php
+1.0.9:
+    - 'Updated table martinimultimedia_press_reviews'
+    - builder_table_update_martinimultimedia_press_reviews_2.php
