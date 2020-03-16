@@ -24,7 +24,7 @@ class Release extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
 
-    protected $dates = ['deleted_at','published_at'];
+    protected $dates = ['publish_from','publish_to','deleted_at','created_at','updated_at'];
 
     /**
      * @var string The database table used by the model.

@@ -24,7 +24,7 @@ class Review extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
 
-    protected $dates = ['deleted_at','published_at'];
+    protected $dates = ['deleted_at','updated_at','created_at'];
 
     /**
      * @var string The database table used by the model.
