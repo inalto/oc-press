@@ -1,0 +1,10 @@
+name: Categories
+form: $/martinimultimedia/press/models/category/fields.yaml
+modelClass: MartiniMultimedia\Press\Models\Category
+defaultRedirect: martinimultimedia/press/categories
+create:
+    redirect: 'martinimultimedia/press/categories/update/:id'
+    redirectClose: martinimultimedia/press/categories
+update:
+    redirect: martinimultimedia/press/categories
+    redirectClose: martinimultimedia/press/categories

@@ -11,9 +11,13 @@ navigation:
         icon: icon-newspaper-o
         sideMenu:
             side-menu-item:
-                label: Comunicati
+                label: Notizie
                 url: martinimultimedia/press/releases
                 icon: icon-list
+            side-menu-item3:
+                label: Categorie
+                url: martinimultimedia/press/categories
+                icon: icon-list-alt
             side-menu-item2:
                 label: Rassegna
                 url: martinimultimedia/press/reviews

@@ -3,11 +3,13 @@ fields:
         label: Titolo
         span: auto
         type: text
-    published_at:
-        label: Data
-        mode: date
+    slug:
+        label: 'Url Alias'
         span: auto
-        type: datepicker
+        preset:
+            field: title
+            type: slug
+        type: text
     content:
         label: Contenuto
         size: large
@@ -22,10 +24,22 @@ fields:
             extension: auto
         span: auto
         type: fileupload
-    slug:
-        label: 'Url Alias'
+    categories:
+        label: Categorie
+        nameFrom: title
+        descriptionFrom: description
         span: auto
-        preset:
-            field: title
-            type: slug
-        type: text
+        type: relation
+tabs:
+    fields:
+        published_at:
+            label: Data
+            mode: date
+            span: auto
+            type: datepicker
+            tab: Opzioni
+        featured:
+            label: 'In evidenza?'
+            span: auto
+            type: switch
+            tab: Opzioni
