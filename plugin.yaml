@@ -22,3 +22,7 @@ navigation:
                 label: Rassegna
                 url: martinimultimedia/press/reviews
                 icon: icon-list-alt
+            side-menu-item3:
+                label: Categorie
+                url: martinimultimedia/press/categories
+                icon: icon-list-alt
