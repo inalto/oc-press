@@ -26,7 +26,27 @@ class Release extends ComponentBase
                 'description' => 'martinimultimedia.press::lang.settings.slug_description',
                 'default'     => '{{ :slug }}',
                 'type'        => 'string'
+            ],
+            'y' => [
+                'title'       => 'martinimultimedia.press::lang.settings.y',
+                'description' => 'martinimultimedia.press::lang.settings.y_description',
+                'default'     => '{{ :y }}',
+                'type'        => 'string'
+            ],
+            'm' => [
+                'title'       => 'martinimultimedia.press::lang.settings.m',
+                'description' => 'martinimultimedia.press::lang.settings.m_description',
+                'default'     => '{{ :m }}',
+                'type'        => 'string'
+            ],
+            'd' => [
+                'title'       => 'martinimultimedia.press::lang.settings.d',
+                'description' => 'martinimultimedia.press::lang.settings.d_description',
+                'default'     => '{{ :d }}',
+                'type'        => 'string'
             ]
+
+
         ];
     }
 
@@ -46,18 +66,13 @@ class Release extends ComponentBase
     {
         $slug = $this->property('slug');
         $release = new R;
-
-
         $release = $release->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
             ? $release->transWhere('slug', $slug)
             : $release->where('slug', $slug);
-        
         if (!$this->checkEditor()) {
             $release = $release->isPublished();
         }
-       
         $release = $release->first();
-            
         return $release;
     }
 

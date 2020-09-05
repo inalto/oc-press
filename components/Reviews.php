@@ -21,6 +21,8 @@ class Reviews extends ComponentBase
      * @var string
      */
     public $reviewPage;
+
+    public $pageParam;
      /**
      * If the post list should be ordered by another attribute.
      * @var string

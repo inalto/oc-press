@@ -44,10 +44,17 @@ class Review extends Model
 
 
     public $attachMany = [
-        'images' => ['System\Models\File', 'order' => 'sort_order']
+        'images' => ['System\Models\File', 'order' => 'sort_order'],
+        'documents' => ['System\Models\File', 'order' => 'sort_order']
    ];
 
 
+   public $belongsTo = [
+    'newspaper' => [
+        'MartiniMultimedia\Press\Models\Newspaper',
+        'key' => 'newspaper_id'
+    ]
+];
 
    
     /**
@@ -81,9 +88,9 @@ class Review extends Model
 
         //expose published year, month and day as URL parameters
         if ($this->published) {
-            $params['year'] = $this->published_at->format('Y');
-            $params['month'] = $this->published_at->format('m');
-            $params['day'] = $this->published_at->format('d');
+            $params['y'] = Carbon::parse($this->published_at)->format('Y');
+            $params['m'] = Carbon::parse($this->published_at)->format('m');
+            $params['d'] = Carbon::parse($this->published_at)->format('d');
         }
 
         return $this->url = $controller->pageUrl($pageName, $params);
@@ -126,6 +133,7 @@ class Review extends Model
      */
     public function scopeListFrontEnd($query, $options)
     {
+        
         /*
          * Default options
          */
@@ -173,6 +181,7 @@ class Review extends Model
         if (strlen($search)) {
             $query->searchWhere($search, $searchableFields);
         }
+//        $query->with('newspaper');
 
         return $query->paginate($perPage, $page);
     }

@@ -1,0 +1,10 @@
+name: Newspapers
+form: $/martinimultimedia/press/models/newspaper/fields.yaml
+modelClass: MartiniMultimedia\Press\Models\Newspaper
+defaultRedirect: martinimultimedia/press/newspapers
+create:
+    redirect: 'martinimultimedia/press/newspapers/update/:id'
+    redirectClose: martinimultimedia/press/newspapers
+update:
+    redirect: martinimultimedia/press/newspapers
+    redirectClose: martinimultimedia/press/newspapers
