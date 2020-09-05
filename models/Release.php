@@ -85,14 +85,14 @@ class Release extends Model
             'id'   => $this->id,
             'slug' => $this->slug,
         ];
-
+/*
         //expose published year, month and day as URL parameters
         if ($this->published) {
             $params['year'] = $this->published_at->format('Y');
             $params['month'] = $this->published_at->format('m');
             $params['day'] = $this->published_at->format('d');
         }
-
+*/
         return $this->url = $controller->pageUrl($pageName, $params);
     }
 
