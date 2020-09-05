@@ -45,7 +45,7 @@ class Release extends Model
     public $belongsToMany = [
         'categories' => [
             'MartiniMultimedia\Press\Models\Category',
-            'table' => 'martinimultimedia_press_category_release',
+            'table' => 'martinimultimedia_press_releases_categories',
             'order' => 'title'
         ]
     ];
