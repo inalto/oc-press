@@ -21,6 +21,8 @@ class Releases extends ComponentBase
      * @var string
      */
     public $releasePage;
+
+    public $pageParam;
      /**
      * If the post list should be ordered by another attribute.
      * @var string

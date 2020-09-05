@@ -3,16 +3,24 @@ fields:
         label: Titolo
         span: auto
         type: text
-    published_at:
-        label: Data
-        mode: date
+    slug:
+        label: 'Url Alias'
         span: auto
-        type: datepicker
+        preset:
+            field: title
+            type: slug
+        type: text
     content:
         label: Contenuto
         size: large
         span: full
         type: richeditor
+    newspaper:
+        label: Testata
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation
     images:
         label: Immagini
         mode: image
@@ -22,10 +30,26 @@ fields:
             extension: auto
         span: auto
         type: fileupload
-    slug:
-        label: 'Url Alias'
+    documents:
+        label: Allegati
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
         span: auto
-        preset:
-            field: title
-            type: slug
-        type: text
+        type: fileupload
+tabs:
+    fields:
+        published_at:
+            label: Data
+            mode: date
+            span: auto
+            type: datepicker
+            tab: 'Tab 1'
+        published:
+            label: 'Pubblicato?'
+            span: auto
+            default: 1
+            type: switch
+            tab: 'Tab 1'

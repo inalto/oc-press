@@ -7,6 +7,7 @@ class BuilderTableCreateMartinimultimediaPressCategories extends Migration
 {
     public function up()
     {
+        Schema::dropIfExists('martinimultimedia_press_categories');
         Schema::create('martinimultimedia_press_categories', function($table)
         {
             $table->engine = 'InnoDB';

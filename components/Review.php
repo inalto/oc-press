@@ -26,6 +26,24 @@ class Review extends ComponentBase
                 'description' => 'martinimultimedia.press::lang.settings.slug_description',
                 'default'     => '{{ :slug }}',
                 'type'        => 'string'
+            ],
+            'y' => [
+                'title'       => 'martinimultimedia.press::lang.settings.y',
+                'description' => 'martinimultimedia.press::lang.settings.y_description',
+                'default'     => '{{ :y }}',
+                'type'        => 'string'
+            ],
+            'm' => [
+                'title'       => 'martinimultimedia.press::lang.settings.m',
+                'description' => 'martinimultimedia.press::lang.settings.m_description',
+                'default'     => '{{ :m }}',
+                'type'        => 'string'
+            ],
+            'd' => [
+                'title'       => 'martinimultimedia.press::lang.settings.d',
+                'description' => 'martinimultimedia.press::lang.settings.d_description',
+                'default'     => '{{ :d }}',
+                'type'        => 'string'
             ]
         ];
     }
@@ -46,12 +64,20 @@ class Review extends ComponentBase
     {
         $slug = $this->property('slug');
         $review = new R;
+     //   $date= $this->property('y')."-".$this->property('m')."-".$this->property('d');
 
-
+        
         $review = $review->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
             ? $review->transWhere('slug', $slug)
             : $review->where('slug', $slug);
         
+   //     $review= $review->whereDate('created_at','=',date('y-m-d',$date));
+        $review->whereDay('created_at', '=', $this->property('d'));
+        $review->whereMonth('created_at', '=',$this->property('m'));
+        $review->whereYear('created_at', '=', $this->property('y'));
+
+        $sql =$review->toSql();
+
         if (!$this->checkEditor()) {
             $review = $review->isPublished();
         }
