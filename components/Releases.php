@@ -71,9 +71,15 @@ class Releases extends ComponentBase
                 'title'       => 'martinimultimedia.press::lang.settings.release_page',
                 'description' => 'martinimultimedia.press::lang.settings.release_page_description',
                 'type'        => 'dropdown',
-                'default'     => 'blog/post',
+                'default'     => 'press/post',
                 'group'       => 'Links',
-            ]
+            ],
+            'categories' => [
+                'title'       => 'martinimultimedia.press::lang.settings.page_number',
+                'description' => 'martinimultimedia.press::lang.settings.page_number_description',
+                'type'        => 'string',
+                'default'     => '{{ :categories }}',
+            ],
         ];
     }
 
@@ -126,6 +132,7 @@ class Releases extends ComponentBase
             'page'       => $this->property('pageNumber'),
             'sort'       => $this->property('sortOrder'),
             'perPage'    => $this->property('releasesPerPage'),
+            'categories'    => array_map('trim',explode(",",$this->property('categories'))),
             'search'     => trim(input('search')),
             'published'  => $isPublished
         ]);

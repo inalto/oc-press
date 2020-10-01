@@ -19,7 +19,13 @@ fields:
         label: Testata
         nameFrom: name
         descriptionFrom: description
-        span: full
+        span: auto
+        type: relation
+    categories:
+        label: Categorie
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
         type: relation
     images:
         label: Immagini

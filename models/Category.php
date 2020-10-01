@@ -24,8 +24,13 @@ class Category extends Model
 
     public $belongsToMany = [
         'releases' => ['MartiniMultimedia\Press\Models\Release',
-            'table' => 'martinimultimedia_press_category_release',
+            'table' => 'martinimultimedia_press_releases_categories',
             'order' => 'published_at desc',
+//            'scope' => 'isPublished'
+        ],
+        'reviews' => ['MartiniMultimedia\Press\Models\Review',
+            'table' => 'martinimultimedia_press_reviews_categories',
+            'order' => 'created_at desc',
 //            'scope' => 'isPublished'
         ],
     ];

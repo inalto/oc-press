@@ -1,29 +1,30 @@
-<?php return [
-    'plugin' => [
-        'name' => 'Press',
-        'description' => 'Comunicati stampa e recensioni'
+<?php
+return [
+    "components" => [
+        "release" => ["description" => "Comunicato stampa singolo", "title" => "Comunicato stampa"],
+        "releases" => ["description" => "Lista di comunicati stampa", "title" => "Comunicati stampa"],
+        "review" => ["description" => "Recensione singola", "title" => "Recensione"],
+        "reviews" => ["description" => "Lista di recensioni", "title" => "Recensioni"]
     ],
-    'components' => [
-
-        'review' => [
-                'title' => 'Recensione',
-                'description' => 'Recensione singola'
-        ],
-        'reviews' => [
-            'title' => 'Recensioni',
-            'description' => 'Lista di recensioni'
-        ],
-        'release' => [
-            'title' => 'Comunicato stampa',
-            'description' => 'Comunicato stampa singolo'
-        ],
-        'releases' => [
-            'title' => 'Comunicati stampa',
-            'description' => 'Lista di comunicati stampa'
-        ]
-    ],
-    'setting' => [
-        'slug' => 'Url Alias',
-        'slug_description' => "Chiave url di ricerca"
+    "plugin" => ["description" => "Comunicati stampa e recensioni", "name" => "Press"],
+    "settings" => [
+        "categories" => "Categorie",
+        "categories_description" => "Filtro di categoria o parametro",
+        "d" => "Giorno",
+        "d_description" => "Parametro del giorno",
+        "m" => "Mese",
+        "m_description" => "Parametro del mese",
+        "no_releases" => "Non ci sono comunicati al momento",
+        "no_releases_description" => "Messaggio nel caso di mancanza di comunicati",
+        "page_number" => "Numero di pagina",
+        "page_number_description" => "Numero di pagina o parametro",
+        "releases_order" => "Ordina comunicati",
+        "releases_order_description" => "",
+        "releases_per_page" => "Comunicati per pagina",
+        "releases_per_page_description" => "Imposta quanti comunicati ci sono per pagina",
+        "slug" => "Url Alias",
+        "slug_description" => "Chiave url di ricerca",
+        "y" => "Anno",
+        "y_description" => "Parametro per l'anno"
     ]
 ];

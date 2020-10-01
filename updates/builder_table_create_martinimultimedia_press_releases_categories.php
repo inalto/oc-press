@@ -14,7 +14,7 @@ class BuilderTableCreateMartinimultimediaPressReleasesCategories extends Migrati
             $table->engine = 'InnoDB';
             $table->integer('post_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->primary(['post_id', 'category_id'],'mm_press_categories');
+            $table->primary(['release_id', 'category_id'],'mm_press_categories');
         });
 
     }

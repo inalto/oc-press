@@ -10,11 +10,30 @@ fields:
             field: title
             type: slug
         type: text
+    excerpt:
+        label: Estratto
+        size: small
+        span: full
+        required: 1
+        type: richeditor
+        comment: 'Una versione concisa della notizia per la visione in lista'
     content:
         label: Contenuto
         size: large
         span: full
         type: richeditor
+    tags:
+        label: Tags
+        type: taglist
+        mode: relation
+        nameFrom: name
+        span: auto
+    categories:
+        label: Categorie
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
     images:
         label: Immagini
         mode: image
@@ -22,14 +41,17 @@ fields:
         thumbOptions:
             mode: crop
             extension: auto
-        span: auto
+        span: full
         type: fileupload
-    categories:
-        label: Categorie
-        nameFrom: title
-        descriptionFrom: description
-        span: auto
-        type: relation
+    documents:
+        label: Allegati
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
 tabs:
     fields:
         published_at:

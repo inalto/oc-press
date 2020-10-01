@@ -1,0 +1,10 @@
+name: Tags
+form: $/martinimultimedia/press/models/tag/fields.yaml
+modelClass: MartiniMultimedia\Press\Models\Tag
+defaultRedirect: martinimultimedia/press/tags
+create:
+    redirect: 'martinimultimedia/press/tags/update/:id'
+    redirectClose: martinimultimedia/press/tags
+update:
+    redirect: martinimultimedia/press/tags
+    redirectClose: martinimultimedia/press/tags

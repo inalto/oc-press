@@ -14,14 +14,18 @@ navigation:
                 label: Notizie
                 url: martinimultimedia/press/releases
                 icon: icon-list
-            side-menu-item2:
-                label: Rassegna
-                url: martinimultimedia/press/reviews
-                icon: icon-list
+            side-menu-item5:
+                label: Tags
+                url: martinimultimedia/press/tags
+                icon: icon-tags
             side-menu-item3:
                 label: Categorie
                 url: martinimultimedia/press/categories
                 icon: icon-list-alt
+            side-menu-item2:
+                label: Rassegna
+                url: martinimultimedia/press/reviews
+                icon: icon-list
             side-menu-item4:
                 label: Testate
                 url: martinimultimedia/press/newspapers

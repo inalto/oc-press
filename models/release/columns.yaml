@@ -9,6 +9,10 @@ columns:
         type: text
         searchable: true
         sortable: true
+    categories:
+        label: Categorie
+        relation: categories
+        select: title
     published_at:
         label: data
         type: date

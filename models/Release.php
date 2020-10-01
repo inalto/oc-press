@@ -16,6 +16,7 @@ use Carbon\Carbon;
 use Cms\Classes\Page as CmsPage;
 use Cms\Classes\Theme;
 
+use MartiniMultimedia\Press\Models\Tag;
 /**
  * Model
  */
@@ -24,12 +25,14 @@ class Release extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
 
-    protected $dates = ['publish_from','publish_to','deleted_at','created_at','updated_at'];
+    protected $dates = ['published_at','published_until','deleted_at','created_at','updated_at'];
 
     /**
      * @var string The database table used by the model.
      */
     public $table = 'martinimultimedia_press_releases';
+
+    protected $jsonable = ['tags_array', 'tags_array_id'];
 
     /*
      * Validation
@@ -47,13 +50,21 @@ class Release extends Model
             'MartiniMultimedia\Press\Models\Category',
             'table' => 'martinimultimedia_press_releases_categories',
             'order' => 'title'
+        ],
+        'tags' => [
+            //'MartiniMultimedia\Press\Models\Tag',
+            Tag::class,
+            'table' => 'martinimultimedia_press_releases_tags',
+            'key' => 'release_id',
+            'otherKey' => 'tag_id'
+            
         ]
     ];
 
     public $attachMany = [
-        'images' => ['System\Models\File', 'order' => 'sort_order']
-   ];
-
+        'images' => ['System\Models\File', 'order' => 'sort_order'],
+    'documents' => ['System\Models\File', 'order' => 'sort_order']
+];
 
 
    
@@ -85,14 +96,14 @@ class Release extends Model
             'id'   => $this->id,
             'slug' => $this->slug,
         ];
-/*
+
         //expose published year, month and day as URL parameters
-        if ($this->published) {
-            $params['year'] = $this->published_at->format('Y');
-            $params['month'] = $this->published_at->format('m');
-            $params['day'] = $this->published_at->format('d');
-        }
-*/
+   //     if ($this->published_at) {
+            $params['y'] = $this->published_at->format('Y');
+            $params['m'] = $this->published_at->format('m');
+            $params['d'] = $this->published_at->format('d');
+     //   }
+
         return $this->url = $controller->pageUrl($pageName, $params);
     }
 
@@ -139,6 +150,7 @@ class Release extends Model
         extract(array_merge([
             'page'       => 1,
             'perPage'    => 30,
+            'categories'    => '',
             'sort'       => 'created_at',
             'search'     => '',
             'published'  => true,
@@ -174,6 +186,18 @@ class Release extends Model
         }
 
         /*
+        * filter by categories
+        */
+        //dd($categories);
+        if(!empty($categories)&&!empty($categories[0])) {
+            $query->whereHas('categories', function($q) use ($categories){
+
+              //  dd($categories);
+                $q->whereIn('slug', $categories);
+            }); 
+        }
+        
+        /*
          * Search
          */
         $search = trim($search);
@@ -184,5 +208,28 @@ class Release extends Model
         return $query->paginate($perPage, $page);
     }
 
+    //
+    // Options
+    //
+
+    public function getTagsArrayOptions($value, $formData)
+    {
+        return Tag::all()->lists('name');
+    }
+
+    public function getTagsStringOptions($value, $formData)
+    {
+        return self::getTagsArrayOptions($value, $formData);
+    }
+
+    public function getTagsArrayIdOptions($value, $formData)
+    {
+        return Tag::all()->pluck('name', 'id')->toArray();
+    }
+
+    public function getTagsStringIdOptions($value, $formData)
+    {
+        return self::getTagsArrayIdOptions($value, $formData);
+    }
 
 }

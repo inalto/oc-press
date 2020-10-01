@@ -48,7 +48,13 @@ class Review extends Model
         'documents' => ['System\Models\File', 'order' => 'sort_order']
    ];
 
-
+   public $belongsToMany = [
+    'categories' => [
+        'MartiniMultimedia\Press\Models\Category',
+        'table' => 'martinimultimedia_press_reviews_categories',
+        'order' => 'title'
+    ]
+    ];
    public $belongsTo = [
     'newspaper' => [
         'MartiniMultimedia\Press\Models\Newspaper',
@@ -118,8 +124,6 @@ class Review extends Model
         return $query
             ->whereNotNull('published')
             ->where('published', true)
-            ->whereNotNull('published_at')
-            ->where('published_at', '<', Carbon::now())
         ;
     }
             
