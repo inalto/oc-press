@@ -65,3 +65,8 @@ tabs:
             span: auto
             type: switch
             tab: Opzioni
+        show_attachments:
+            label: 'Mostra allegati?'
+            span: auto
+            type: switch
+            tab: Opzioni

@@ -14,7 +14,7 @@
 <section>
     
 
-                    <article class="post clearfix mb-5">
+                    <article class="clearfix mb-5 post">
 
                     {% if release.images.count %}
                         <div class="entry-header">
@@ -40,9 +40,9 @@
                             {{ release.content|raw }}
 
                     
-                            {% if release.documents.count %}
+                            {% if release.documents.count and release.show_attachments %}
 
-                            <h5 class="pull-left mt-10 mr-20 text-theme-colored">Documenti allegati:</h5>
+                            <h5 class="mt-10 mr-20 pull-left text-theme-colored">Documenti allegati:</h5>
 
                             <table class="table">
                                 <thead class="thead-dark">
@@ -76,8 +76,8 @@
 {% endif%}
 
 
-                            <div class="mt-30 mb-0">
-                                <h5 class="pull-left mt-10 mr-20 text-theme-colored">Condividi:</h5>
+                            <div class="mb-0 mt-30">
+                                <h5 class="mt-10 mr-20 pull-left text-theme-colored">Condividi:</h5>
                                 <div class="list-group list-group-horizontal">
                                     <div class="list-group-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{  url_current()|url_encode}}"
                                         target="_blank"><i class="fa-3x fab fa-facebook"></i></a></div>

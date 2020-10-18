@@ -34,7 +34,7 @@ fields:
         thumbOptions:
             mode: crop
             extension: auto
-        span: auto
+        span: full
         type: fileupload
     documents:
         label: Allegati
@@ -43,7 +43,7 @@ fields:
         thumbOptions:
             mode: crop
             extension: auto
-        span: auto
+        span: full
         type: fileupload
 tabs:
     fields:
@@ -57,5 +57,10 @@ tabs:
             label: 'Pubblicato?'
             span: auto
             default: 1
+            type: switch
+            tab: 'Tab 1'
+        show_attachments:
+            label: 'Mostra allegati?'
+            span: auto
             type: switch
             tab: 'Tab 1'
