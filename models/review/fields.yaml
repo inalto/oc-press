@@ -62,5 +62,6 @@ tabs:
         show_attachments:
             label: 'Mostra allegati?'
             span: auto
+            default: 1
             type: switch
             tab: 'Tab 1'

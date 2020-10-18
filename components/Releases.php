@@ -54,6 +54,18 @@ class Releases extends ComponentBase
                 'validationMessage' => 'martinimultimedia.press::lang.settings.releases_per_page_validation',
                 'default'           => '10',
             ],
+            'skip' => [
+                'title'             => 'martinimultimedia.press::lang.settings.skip',
+                'type'              => 'string',
+                'validationPattern' => '^[0-9]+$',
+                'validationMessage' => 'martinimultimedia.press::lang.settings.skip_validation',
+                'default'           => '0',
+            ],
+            'featured_only' => [
+                'title'             => 'martinimultimedia.press::lang.settings.featured_only',
+                'type'              => 'switch',
+                'default'           => '0',
+            ],
             'noReleasesMessage' => [
                 'title'        => 'martinimultimedia.press::lang.settings.no_releases',
                 'description'  => 'martinimultimedia.press::lang.settings.no_releases_description',
@@ -132,6 +144,8 @@ class Releases extends ComponentBase
             'page'       => $this->property('pageNumber'),
             'sort'       => $this->property('sortOrder'),
             'perPage'    => $this->property('releasesPerPage'),
+            'skip'       => $this->property('skip'),
+            'featured_only'       => $this->property('featured_only'),
             'categories'    => array_map('trim',explode(",",$this->property('categories'))),
             'search'     => trim(input('search')),
             'published'  => $isPublished

@@ -133,6 +133,11 @@ class Release extends Model
             ->where('published_at', '<', Carbon::now())
         ;
     }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', true);
+    }
             
     /**
      * Lists posts for the front end
@@ -150,6 +155,8 @@ class Release extends Model
         extract(array_merge([
             'page'       => 1,
             'perPage'    => 30,
+            'skip'       => 0,
+            'featured_only' => false,
             'categories'    => '',
             'sort'       => 'created_at',
             'search'     => '',
@@ -161,6 +168,10 @@ class Release extends Model
 
         if ($published) {
             $query->isPublished();
+        }
+
+        if ($featured_only) {
+            $query->featured();
         }
 
         /*
@@ -196,7 +207,7 @@ class Release extends Model
                 $q->whereIn('slug', $categories);
             }); 
         }
-        
+        $query->skip($skip);
         /*
          * Search
          */
