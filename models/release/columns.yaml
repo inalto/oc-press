@@ -13,6 +13,22 @@ columns:
         label: Categorie
         relation: categories
         select: title
+    published:
+        label: 'Pubblicato'
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Pubblica'
+        titleFalse: 'Togli dalla pubblicazione'
+        textTrue: 'Pubblicato'
+        textFalse: 'Non pubblicato'
+    featured:
+        label: 'In evidenza'
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Metti in evidenza'
+        titleFalse: 'Togli in evidenza'
+        textTrue: 'In evidenza'
+        textFalse: 'Non in evidenza'
     published_at:
         label: data
         type: date
