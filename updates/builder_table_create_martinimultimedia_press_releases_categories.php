@@ -12,7 +12,7 @@ class BuilderTableCreateMartinimultimediaPressReleasesCategories extends Migrati
         Schema::create('martinimultimedia_press_releases_categories', function($table)
         {
             $table->engine = 'InnoDB';
-            $table->integer('post_id')->unsigned();
+            $table->integer('release_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->primary(['release_id', 'category_id'],'mm_press_categories');
         });

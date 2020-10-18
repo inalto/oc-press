@@ -41,6 +41,7 @@
     - builder_table_update_martinimultimedia_press_releases_categories.php
 1.0.21:
     - 'Updated table martinimultimedia_press_reviews_categories'
+    - builder_table_create_martinimultimedia_press_reviews_categories.php
     - builder_table_update_martinimultimedia_press_reviews_categories.php
 1.0.22:
     - 'Updated table martinimultimedia_press_releases'

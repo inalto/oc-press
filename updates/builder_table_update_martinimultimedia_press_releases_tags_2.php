@@ -9,6 +9,7 @@ class BuilderTableUpdateMartinimultimediaPressReleasesTags2 extends Migration
     {
         Schema::table('martinimultimedia_press_releases_tags', function($table)
         {
+            $table->dropPrimary(['tag_id','release_id']);
             $table->primary(['tag_id','release_id']);
         });
     }

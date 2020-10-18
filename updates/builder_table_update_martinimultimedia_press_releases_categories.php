@@ -9,6 +9,7 @@ class BuilderTableUpdateMartinimultimediaPressReleasesCategories extends Migrati
     {
         Schema::table('martinimultimedia_press_releases_categories', function($table)
         {
+            $table->dropPrimary(['release_id','category_id']);
             $table->primary(['release_id','category_id'],'releases_categories');
         });
     }
