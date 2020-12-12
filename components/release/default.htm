@@ -16,7 +16,7 @@
 
                     <article class="clearfix mb-5 post">
 
-                    {% if release.images.count %}
+                    {% if release.images|length %}
                         <div class="entry-header">
                             <div class="post-thumb thumb">
                             <img src="{{ release.images.first.path }}" alt="{{ release.images.first.title }}" title="{{ release.images.first.title }}"

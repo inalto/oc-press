@@ -23,6 +23,8 @@ class Releases extends ComponentBase
     public $releasePage;
 
     public $pageParam;
+    public $paginate;
+
      /**
      * If the post list should be ordered by another attribute.
      * @var string
@@ -56,6 +58,7 @@ class Releases extends ComponentBase
             ],
             'skip' => [
                 'title'             => 'martinimultimedia.press::lang.settings.skip',
+                'description' => 'martinimultimedia.press::lang.settings.skip_description',
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'martinimultimedia.press::lang.settings.skip_validation',
@@ -63,8 +66,13 @@ class Releases extends ComponentBase
             ],
             'featured_only' => [
                 'title'             => 'martinimultimedia.press::lang.settings.featured_only',
-                'type'              => 'switch',
+                'type'              => 'checkbox',
                 'default'           => '0',
+            ],
+            'paginate' => [
+                'title'             => 'martinimultimedia.press::lang.settings.paginate',
+                'type'              => 'checkbox',
+                'default'           => '1',
             ],
             'noReleasesMessage' => [
                 'title'        => 'martinimultimedia.press::lang.settings.no_releases',
@@ -87,8 +95,8 @@ class Releases extends ComponentBase
                 'group'       => 'Links',
             ],
             'categories' => [
-                'title'       => 'martinimultimedia.press::lang.settings.page_number',
-                'description' => 'martinimultimedia.press::lang.settings.page_number_description',
+                'title'       => 'martinimultimedia.press::lang.settings.categories',
+                'description' => 'martinimultimedia.press::lang.settings.categories_description',
                 'type'        => 'string',
                 'default'     => '{{ :categories }}',
             ],
@@ -105,10 +113,16 @@ class Releases extends ComponentBase
         return R::$allowedSortingOptions;
     }
 
-    public function onRun()
+    public function onRender()
     {        
         $this->prepareVars();
         $this->releases = $this->page['releases'] = $this->listReleases();
+
+
+        if ($this->paginate) {
+        
+
+        
         /*
          * If the page number is not valid, redirect
          */
@@ -117,12 +131,15 @@ class Releases extends ComponentBase
 
             if ($currentPage > ($lastPage = $this->releases->lastPage()) && $currentPage > 1)
                 return Redirect::to($this->currentPageUrl([$pageNumberParam => $lastPage]));
+            }
         }
+        
     }
 
     protected function prepareVars()
     {
         $this->pageParam = $this->page['pageParam'] = $this->paramName('pageNumber');
+        $this->paginate = $this->page['paginate'] = $this->paramName('paginate');
         $this->noReleasesMessage = $this->page['noReleasesMessage'] = $this->property('noReleasesMessage');
 
         /*
@@ -145,6 +162,8 @@ class Releases extends ComponentBase
             'sort'       => $this->property('sortOrder'),
             'perPage'    => $this->property('releasesPerPage'),
             'skip'       => $this->property('skip'),
+            
+            'paginate'   => $this->property('paginate'),
             'featured_only'       => $this->property('featured_only'),
             'categories'    => array_map('trim',explode(",",$this->property('categories'))),
             'search'     => trim(input('search')),

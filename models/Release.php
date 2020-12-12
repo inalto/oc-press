@@ -15,7 +15,7 @@ use Backend\Models\User;
 use Carbon\Carbon;
 use Cms\Classes\Page as CmsPage;
 use Cms\Classes\Theme;
-
+use Log;
 use MartiniMultimedia\Press\Models\Tag;
 /**
  * Model
@@ -160,15 +160,16 @@ class Release extends Model
             'categories'    => '',
             'sort'       => 'created_at',
             'search'     => '',
+            'paginate'  => true,
             'published'  => true,
             'exceptPost' => null,
         ], $options));
 
         $searchableFields = ['title', 'slug',  'content'];
 
-        if ($published) {
+    //    if ($published) {
             $query->isPublished();
-        }
+//        }
 
         if ($featured_only) {
             $query->featured();
@@ -207,7 +208,7 @@ class Release extends Model
                 $q->whereIn('slug', $categories);
             }); 
         }
-        $query->skip($skip);
+
         /*
          * Search
          */
@@ -216,7 +217,22 @@ class Release extends Model
             $query->searchWhere($search, $searchableFields);
         }
 
-        return $query->paginate($perPage, $page);
+      
+        //if ($skip) {
+        //}
+        //Log::info('skip'.$skip." ".$query->paginate($perPage, $page)->toSql());
+        //dd();
+        if ($paginate) {
+        
+            return $query->paginate($perPage, $page);
+        }   else {
+            $query->skip($skip);
+            $query->take($perPage);
+    
+            return $query->get();
+        }
+        
+        
     }
 
     //
