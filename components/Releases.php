@@ -24,6 +24,7 @@ class Releases extends ComponentBase
 
     public $pageParam;
     public $paginate;
+    public $categories;
 
      /**
      * If the post list should be ordered by another attribute.
@@ -141,6 +142,7 @@ class Releases extends ComponentBase
         $this->pageParam = $this->page['pageParam'] = $this->paramName('pageNumber');
         $this->paginate = $this->page['paginate'] = $this->paramName('paginate');
         $this->noReleasesMessage = $this->page['noReleasesMessage'] = $this->property('noReleasesMessage');
+        $this->categories = $this->page['categories']=$this->property('categories');
 
         /*
          * Page links

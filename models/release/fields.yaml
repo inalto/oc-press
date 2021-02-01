@@ -55,7 +55,13 @@ fields:
 tabs:
     fields:
         published_at:
-            label: Data
+            label: 'Pubblicato dal'
+            mode: date
+            span: auto
+            type: datepicker
+            tab: Opzioni
+        published_until:
+            label: 'Pubblicato fino al'
             mode: date
             span: auto
             type: datepicker
@@ -70,4 +76,10 @@ tabs:
             span: auto
             default: 1
             type: switch
+            tab: Opzioni
+        date:
+            label: Data
+            mode: date
+            span: auto
+            type: datepicker
             tab: Opzioni

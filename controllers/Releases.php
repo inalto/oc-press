@@ -10,6 +10,10 @@ class Releases extends Controller
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
 
+    public $requiredPermissions = [
+        'martinimultimedia.press.access_releases',
+    ];
+
     public function __construct()
     {
         parent::__construct();
