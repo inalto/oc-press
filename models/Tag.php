@@ -13,16 +13,16 @@ class Tag extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'martinimultimedia_events_tags';
+    public $table = 'martinimultimedia_press_tags';
 
     public $timestamps=false;
    /**
      * @var array Relations
      */
     public $belongsToMany = [
-        'events' => [
+        'releases' => [
             //'MartiniMultimedia\Press\Models\Release',
-            Event::class
+            Release::class
            // ,
            // 'table' => 'martinimultimedia_press_releases_tags',
            // 'key' => 'tag_id',
@@ -42,7 +42,7 @@ class Tag extends Model
      * @var array Validation rules
      */
     public $rules = [
-        'name' => 'required|unique:martinimultimedia_events_tags'
+        'name' => 'required|unique:martinimultimedia_releases_tags'
     ];
 
  /**
