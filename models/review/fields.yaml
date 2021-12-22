@@ -47,12 +47,6 @@ fields:
         type: fileupload
 tabs:
     fields:
-        published_at:
-            label: Data
-            mode: date
-            span: auto
-            type: datepicker
-            tab: 'Tab 1'
         published:
             label: 'Pubblicato?'
             span: auto
