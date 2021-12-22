@@ -9,24 +9,41 @@ navigation:
         label: Stampa
         url: martinimultimedia/press/releases
         icon: icon-newspaper-o
+        permissions:
+            - 'martinimultimedia.press.*'
         sideMenu:
             side-menu-item:
                 label: Notizie
                 url: martinimultimedia/press/releases
                 icon: icon-list
+                permissions:
+                    - martinimultimedia.press.releases
+                    - 'martinimultimedia.press.*'
             side-menu-item5:
                 label: Tags
                 url: martinimultimedia/press/tags
                 icon: icon-tags
+                permissions:
+                    - martinimultimedia.press.tags
+                    - 'martinimultimedia.press.*'
             side-menu-item3:
                 label: Categorie
                 url: martinimultimedia/press/categories
                 icon: icon-list-alt
+                permissions:
+                    - martinimultimedia.press.categories
+                    - 'martinimultimedia.press.*'
             side-menu-item2:
                 label: Rassegna
                 url: martinimultimedia/press/reviews
                 icon: icon-list
+                permissions:
+                    - martinimultimedia.press.reviews
+                    - 'martinimultimedia.press.*'
             side-menu-item4:
                 label: Testate
                 url: martinimultimedia/press/newspapers
                 icon: icon-newspaper-o
+                permissions:
+                    - martinimultimedia.press.newspapers
+                    - 'martinimultimedia.press.*'

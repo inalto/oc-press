@@ -83,6 +83,21 @@ class Plugin extends PluginBase
                 'tab' => 'Press',
                 'order' => 310,
             ],
+            'martinimultimedia.press.access_categories' => [
+                'label' => 'Access Categories',
+                'tab' => 'Press',
+                'order' => 290,
+            ],
+            'martinimultimedia.press.access_tags' => [
+                'label' => 'Access tags',
+                'tab' => 'Press',
+                'order' => 290,
+            ],
+            'martinimultimedia.press.access_newspapers' => [
+                'label' => 'Access newspapers',
+                'tab' => 'Press',
+                'order' => 290,
+            ],
             
         ];
     }
