@@ -4,6 +4,9 @@ use Redirect;
 use BackendAuth;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
+use Carbon\Carbon;
+use Lang;
+use Session;
 use MartiniMultimedia\Press\Models\Release as R;
 use Log;
 
@@ -31,6 +34,16 @@ class Releases extends ComponentBase
      * @var string
      */
     public $sortOrder;
+
+    public function __construct($cmsObject = null, $properties = []){
+        //Carbon::setLocale( Lang::getLocale() );
+        //$localeCode = Lang::getLocale();
+        $localeCode = Session::get('rainlab.translate.locale');
+       // Log::info('locale->'.$localeCode);
+        Carbon::setLocale( $localeCode );
+        setlocale( LC_TIME, $localeCode . '_' . strtoupper($localeCode) . '.UTF-8' );
+        parent::__construct($cmsObject, $properties);
+    }
 
     public function componentDetails()
     {
